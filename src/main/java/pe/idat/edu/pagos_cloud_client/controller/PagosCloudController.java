@@ -1,9 +1,8 @@
 package pe.idat.edu.pagos_cloud_client.controller;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/pagos")
@@ -16,4 +15,10 @@ public class PagosCloudController {
     public String mensajePpagos(){
         return mensaje;
     }
+
+    @PostMapping("/realizar/{idPedido}")
+    public String procesarPago(@PathVariable Long idPedido) {
+        return "Pago realizado con éxito para el pedido: " + idPedido;
+    }
+
 }
